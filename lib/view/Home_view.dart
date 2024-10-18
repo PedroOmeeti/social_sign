@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:social_sign/controller/Home_controller.dart';
+import 'package:social_sign/view/Infos_usuario_view.dart';
 import 'package:social_sign/view/Registrar_view.dart';
 
 class HomeView extends StatefulWidget {
@@ -97,8 +99,18 @@ class _HomeViewState extends State<HomeView> {
               SignInButton(
                 Buttons.Google,
                   text: "Entrar com o Google",
-                  onPressed: () {
-                    controller.entrarComGoogle();
+                  onPressed: () async {
+                    User? user = await controller.entrarComGoogle(); // Aguarda o login com Google
+                  
+                  if (user != null) {
+                    // Se o login for bem-sucedido, navegue para a próxima tela
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => InfosUsuarioView(), // Tela de informações do usuário
+                      ),
+                    );
+                  }
                   },
               ),
               SignInButton(
