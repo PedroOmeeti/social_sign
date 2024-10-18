@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:social_sign/controller/Home_controller.dart';
-import 'package:social_sign/view/Registrar_view.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class RegistrarView extends StatefulWidget {
+  const RegistrarView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<RegistrarView> createState() => _RegistrarViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _RegistrarViewState extends State<RegistrarView> {
   HomeController controller = HomeController();
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class _HomeViewState extends State<HomeView> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [     
-              Text('Faça Login', 
+              Text('Crie a sua conta', 
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -71,16 +70,14 @@ class _HomeViewState extends State<HomeView> {
               ),
               SizedBox(height: 20),
               ElevatedButton(
-                
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size(300, 50),
                   backgroundColor: Colors.deepPurple,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero
                   )
                 ),
                 onPressed: () {}, 
-                child: Text('Login',
+                child: Text('Criar conta',
                   style: TextStyle(
                     color: Colors.white
                   ),
@@ -107,18 +104,6 @@ class _HomeViewState extends State<HomeView> {
                   onPressed: () {
                     
                   }
-              ),
-
-              SizedBox(height: 10),
-
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => RegistrarView()));
-                },
-                child: Text('Ainda não possui uma conta?',
-                  style: TextStyle(
-                    color: const Color.fromARGB(255, 184, 145, 196)
-                )),
               )
             ],
           ),
